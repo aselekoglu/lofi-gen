@@ -1,12 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>LoFi Vibe Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="public/style.css">
+  <!-- Load Tone.js before the script -->
+
+  <script
+    type="module"
+    src="https://unpkg.com/@layflags/rolling-number@1.0.0/rolling-number.js"
+  ></script>
   <script src="https://unpkg.com/tone@next"></script>
+  <script src="src/app.js" defer></script>
+  <script>
+    console.log('Tone available?', typeof Tone !== 'undefined');
+  </script>
 </head>
 <body>
-<h1>Click to Start Lo-Fi Vibes</h1>
-<script src="app.js"></script>
+<h1>LoFi Vibe Generator</h1>
+<!-- The script should load after Tone.js -->
+<div id="controls">
+
+  <label>
+    BPM: <input type="range" id="bpmSlider" min="60" max="120" value="80" />
+    <span id="bpmValue">80</span>
+  </label>
+  <button id="muteButton">🔇 Mute</button>
+  <button id="playPauseButton">⏸ Pause</button>
+  <button id="toggleKick">🥁 Kick On</button>
+  <button id="toggleSnare">🥁 Snare On</button>
+  <button id="toggleChords">🎹 Chords On</button>
+  <label for="keySelect"></label><select id="keySelect">
+    <option value="C major">C major</option>
+    <option value="D major">D major</option>
+    <option value="A minor">A minor</option>
+    <option value="E minor">E minor</option>
+  </select>
+
+
+  <div id="degreeSelectors">
+    <layflags-rolling-number value="1"></layflags-rolling-number>
+    <layflags-rolling-number value="5"></layflags-rolling-number>
+    <layflags-rolling-number value="6"></layflags-rolling-number>
+    <layflags-rolling-number value="4"></layflags-rolling-number>
+  </div>
+  <button id="applyProgression">🎵 Apply</button>
+
+</div>
+<div id="chordNamesDisplay" style="margin-top: 1rem; font-size: 1rem;"></div>
 </body>
 </html>

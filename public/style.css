@@ -1,187 +1,99 @@
-@font-face {
-    font-family: "JetBrains Sans";
-    src: url("fonts/JetBrainsSans-Regular.woff2");
+#controls button {
+    background: linear-gradient(145deg, #1a1826, #2e2c3c);
+    border: none;
+    color: #0ff;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 12px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    font-family: inherit;
 }
 
-@font-face {
-    font-family: "JetBrains Mono";
-    src: url("fonts/JetBrainsMono-Regular.woff2");
+#controls button:hover {
+    background: linear-gradient(145deg, #2a2838, #3e3c4c);
 }
 
-:root {
-    font-family: "JetBrains Sans", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #000000;
-    text-align: center;
+#controls button:active {
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.8),
+                inset -1px -1px 3px rgba(255, 255, 255, 0.05);
+    transform: scale(0.95);
 }
-
 body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: 320px;
-    min-height: 100vh;
-    align-items: center;
-
-    background-image: url("background.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    text-align: center;
 }
 
 h1 {
-    font-size: 29px;
-    line-height: 39px;
-    font-weight: 300;
+    margin-top: 20vh;
+    font-size: 3rem;
+    text-shadow: 0 0 10px #00f0ff;
 }
-
-.title {
-    margin-bottom: 40px;
-}
-
-#app {
-    max-width: 1280px;
-}
-
-.logo {
-    margin-top: 45px;
-    margin-left: 20%;
-    align-self: flex-start;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.counter {
-    font-family: "JetBrains Mono", Inter, system-ui, sans-serif;
-    font-weight: 400;
+#controls {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #0ff;
+    font-family: monospace;
     display: flex;
-    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    color: white;
     justify-content: center;
-    padding: 60px;
-    color: rgba(255, 255, 255, 1);
 }
 
-.counter-interaction {
+input[type=range] {
+    vertical-align: middle;
+}
+#degreeSelectors {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px 0;
-    width: 470px;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
-.counter-interaction button {
-    width: 48%;
-    height: 47%;
-    align-content: space-between;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 120px;
-    font-size: 68px;
-    text-align: center;
-}
-
-.counter-interaction button:nth-child(2n+1) {
-    margin-right: 14px;
-}
-
-.counter-interaction button:disabled {
-    color: rgba(255, 255, 255, 0.5);
-    background-image: none;
-    border-color: inherit;
-}
-
-.counter-info {
-    width: 360px;
-    height: 345px;
-    margin-right: 27px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(25, 25, 28, 0.5);
-    border-radius: 29px;
-}
-
-.counter-text {
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 24px;
-    margin-top: 60px;
-    margin-bottom: 28px;
-
-}
-
-.counter-value {
-    font-weight: 200;
-    font-size: 170px;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-}
-
-button {
-    font-family: "JetBrains Mono", Inter, system-ui, sans-serif;
-    background-color: rgba(25, 25, 28, 0.5);
+#degreeSelectors button {
+    background: linear-gradient(145deg, #1a1826, #2e2c3c);
+    border: none;
+    color: #0ff;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.05);
     cursor: pointer;
-    color: rgba(255, 255, 255, 1);
+    transition: background 0.2s ease;
 }
 
-button:hover {
-    background-image: radial-gradient(
-            farthest-corner at 77% 83%,
-            rgba(1, 197, 245, 0.5) 2%,
-            rgba(1, 126, 254, 0.5) 28%,
-            rgba(25, 25, 28, 0) 70%
-    );
-    border: 1px solid rgba(76, 166, 255, 0.2);
-    background-clip: padding-box;
+#degreeSelectors button:hover {
+    background: linear-gradient(145deg, #2a2838, #3e3c4c);
 }
 
-.technologies {
-    margin-bottom: 36px;
-    align-self: center;
+#degreeSelectors button:active {
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.8),
+                inset -1px -1px 3px rgba(255, 255, 255, 0.05);
+    transform: scale(0.95);
 }
 
-.technologies img {
-    max-width: fit-content;
-}
-
-
-@media (max-width: 875px) {
-
-    .logo {
-        margin-top: 10px;
-    }
-
-    .title {
-        margin-bottom: 30px;
-    }
-
-    .counter {
-        flex-direction: column;
-        padding: 0;
-        margin-bottom: 0;
-    }
-
-    .counter-info {
-        width: 100%;
-        height: 300px;
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-
-    .counter-interaction {
-        display: flex;
-        flex-direction: row;
-        height: auto;
-        width: auto;
-    }
-
-    .counter-interaction button {
-        width: 47%;
-        height: 100px;
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
+layflags-rolling-number {
+    font-size: 2rem;
+    width: 3rem;
+    height: 2.5rem;
+    overflow: hidden;
+    color: #0ff;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: 2px solid #0ff;
+    user-select: none;
+    margin: 0 0.5rem;
 }
