@@ -17,36 +17,73 @@
   </script>
 </head>
 <body>
-<h1>LoFi Vibe Generator</h1>
-<!-- The script should load after Tone.js -->
-<div id="controls">
+<section>
+  <div class="background"></div>
 
-  <label>
-    BPM: <input type="range" id="bpmSlider" min="60" max="120" value="80" />
-    <span id="bpmValue">80</span>
-  </label>
-  <button id="muteButton">🔇 Mute</button>
-  <button id="playPauseButton">⏸ Pause</button>
-  <button id="toggleKick">🥁 Kick On</button>
-  <button id="toggleSnare">🥁 Snare On</button>
-  <button id="toggleChords">🎹 Chords On</button>
-  <label for="keySelect"></label><select id="keySelect">
-    <option value="C major">C major</option>
-    <option value="D major">D major</option>
-    <option value="A minor">A minor</option>
-    <option value="E minor">E minor</option>
-  </select>
+  <h1>LoFi Vibe Generator</h1>
+  <!-- The script should load after Tone.js -->
+  <div id="controls">
+    <!-- Row 1: Transport controls -->
+    <div id="row-transport" class="control-row">
+      <label for="bpmSlider">BPM:
+        <input type="range" id="bpmSlider" min="60" max="120" value="80">
+        <span id="bpmValue">80</span>
+      </label>
+      <button id="muteButton">🔇</button>
+      <button id="playPauseButton">⏸</button>
+    </div>
+    <!-- Row 2: Chord progression controls -->
+    <div id="row-chordsettings" class="control-row">
+      <div id="degreeSelectors">
+        <layflags-rolling-number value="1"></layflags-rolling-number>
+        <layflags-rolling-number value="5"></layflags-rolling-number>
+        <layflags-rolling-number value="6"></layflags-rolling-number>
+        <layflags-rolling-number value="4"></layflags-rolling-number>
+      </div>
+      <button id="applyProgression">Apply</button>
+      <button id="previewProgression">Preview</button>
+    </div>
+    <div id="chordNamesDisplay" class="control-row" style="color: #0ff"></div>
+    <!-- Row 3: Key selector -->
+    <div id="row-keys" class="control-row">
+      <label for="keySelect">Key:</label>
+      <select id="keySelect">
+        <option value="C major">C major</option>
+        <option value="D major">D major</option>
+        <option value="A minor">A minor</option>
+        <option value="E minor">E minor</option>
+      </select>
+    </div>
+    <div id="row-synth" class="control-row">
+      <label for="synthSelect">Tone:</label>
+      <select id="synthSelect">
+        <option value="Classic">Classic</option>
+        <option value="Duo">Duo</option>
+        <option value="FM">FM</option>
+        <option value="AM">AM</option>
+        <option value="Rhodes">Rhodes</option>
+      </select>
+    </div>
+    <!-- Row 4: Subdivision -->
+    <div id="row-subdivision" class="control-row">
+      <label for="subdivision">Subdivision:</label>
+      <select id="subdivision">
+        <option value="4n">Quarter (Duplet)</option>
+        <option value="8n">Eighth</option>
+        <option value="8t">Eighth Triplet</option>
+        <option value="16n">Sixteenth</option>
+      </select>
+    </div>
 
+    <!-- Row 5: Kick sequencer -->
+    <div id="row-drums" class="control-row">
+      <span>Kick:</span>
+      <div id="kickGrid" class="sequencer-grid"></div>
+      <span>Snare:</span>
+      <div id="snareGrid" class="sequencer-grid"></div>
+    </div>
 
-  <div id="degreeSelectors">
-    <layflags-rolling-number value="1"></layflags-rolling-number>
-    <layflags-rolling-number value="5"></layflags-rolling-number>
-    <layflags-rolling-number value="6"></layflags-rolling-number>
-    <layflags-rolling-number value="4"></layflags-rolling-number>
   </div>
-  <button id="applyProgression">🎵 Apply</button>
-
-</div>
-<div id="chordNamesDisplay" style="margin-top: 1rem; font-size: 1rem;"></div>
+</section>
 </body>
 </html>
